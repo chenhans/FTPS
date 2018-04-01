@@ -50,6 +50,7 @@ openssl dhparam -check -text -5 512 -out dh512.pem
 openssl dhparam -check -text -5 1024 -out dh1024.pem
 ```
 
+## 3. compile
 ```bash
 cd server
 gcc -DSERVER  -DDHPATH="\"/opt/\"" -g -o server *.c ../*.c -lssl -lcrypto
