@@ -10,15 +10,10 @@
 #include <sys/socket.h>
 
 
-int main(/*int argc, char *argv[]*/)
+int main()
 {
-    /*if (argc == 2){
-        sscanf(argv[1], "%d", &CMD_PORT);
-    }*/
-    //const char *ftp_path = "/home/hans_chen/";
-	const char *ftp_path = "/Users/hans_chen";
     FTP ftp;
-    init(&ftp, ftp_path);
+    init(&ftp, FTPPATH);
 
     return 0;
 }

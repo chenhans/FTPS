@@ -13,7 +13,6 @@
 
 int main(){
     FTP ftp;
-    //init(&ftp, argv[2], atoi(argv[4]));
     init(&ftp, "127.0.0.1", 9876);
     return 0;
 }

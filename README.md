@@ -51,9 +51,11 @@ openssl dhparam -check -text -5 1024 -out dh1024.pem
 ```
 
 ## 3. compile
+Server listen on port: 9876
+Client connect to localhost:9876
 ```bash
 cd server
-gcc -DSERVER  -DDHPATH="\"/opt/\"" -g -o server *.c ../*.c -lssl -lcrypto
+gcc -DSERVER  -DDHPATH="\"/opt/\"" -DFTPPATH="\"/home/ftp/\""  -g -o server *.c ../*.c -lssl -lcrypto
 
 cd client
 gcc -g -o client *.c ../*.c -lssl -lcrypto
