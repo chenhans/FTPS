@@ -1,5 +1,11 @@
 # FTPS
-FTP over SSL Server and Client
+FTP over SSL Server and Client, supoort:</br>
+> USER, PASS, BYE
+> PASSIVE
+> PWD, CWD, LIST
+> RETR, STOR
+> AUTH, CCC
+
 
 ## 1. Generate Certificates
 ```bash
@@ -41,7 +47,7 @@ cat clientcert.pem clientkey.pem rootcert.pem > client.pem
 
 ```
 ## 2. generate DH paramenter
-dh512.pem & dh124.pem must be set into a absolut path, i.e., `/opt/`
+dh512.pem & dh124.pem must be set into a absolute path, i.e., `/opt/`
 
 ```bash
 #dh512
@@ -51,8 +57,8 @@ openssl dhparam -check -text -5 1024 -out dh1024.pem
 ```
 
 ## 3. compile
-Server listen on port: 9876
-Client connect to localhost:9876
+Server listen on port: 9876</br>
+Client connect to localhost:9876</br>
 ```bash
 cd server
 gcc -DSERVER  -DDHPATH="\"/opt/\"" -DFTPPATH="\"/home/ftp/\""  -g -o server *.c ../*.c -lssl -lcrypto
