@@ -1,0 +1,51 @@
+[ ca ]
+default_ca	= localca
+
+[ localca ]
+dir              = /opt/localca
+certificate      = $dir/cacert.pem
+database         = $dir/index.txt
+new_certs_dir    = $dir/certs
+private_key      = $dir/private/cakey.pem
+serial           = $dir/serial
+ 
+default_crl_days = 7
+default_days     = 365
+default_md       = sha1
+ 
+policy           = localca_policy
+x509_extensions  = certificate_extensions
+ 
+[ localca_policy ]
+commonName             = supplied
+stateOrProvinceName    = supplied
+countryName            = supplied
+emailAddress           = supplied
+organizationName       = supplied
+organizationalUnitName = optional
+ 
+[ req ]
+default_bits		= 2048
+default_keyfile 	= privkey.pem
+default_md              = sha1
+
+prompt                  = no
+distinguished_name	= req_distinguished_name
+x509_extensions		= req_extensions
+
+# the following sections are specific to the request we're building
+
+[ certificate_extensions ]
+basicConstraints = CA:true
+subjectKeyIdentifier=hash
+authorityKeyIdentifier=keyid:always,issuer:always
+
+[ req_distinguished_name ]
+countryName         = CN
+stateOrProvinceName = JS
+localityName        = SZ
+organizationName    = Realsil.com
+commonName          = Root CA
+
+[ req_extensions ]
+basicConstraints = CA:true
