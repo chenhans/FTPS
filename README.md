@@ -1,2 +1,2 @@
-# FTPSserver
-FTP over SSL server
+# FTPS
+FTP over SSL Server and Client
